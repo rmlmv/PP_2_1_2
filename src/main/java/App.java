@@ -8,5 +8,15 @@ public class App {
         HelloWorld bean =
                 (HelloWorld) applicationContext.getBean("helloworld");
         System.out.println(bean.getMessage());
+
+        HelloWorld anotherOneBean =
+                applicationContext.getBean("helloworld", HelloWorld.class);
+        Cat catBean = applicationContext.getBean("catBean", Cat.class);
+        Cat anotherOneCatBean = applicationContext.getBean("catBean", Cat.class);
+
+        System.out.println("Являются ли бины \"HelloWorld\" одним и тем же объектом? "
+                + (bean == anotherOneBean));
+        System.out.println("Являются ли бины \"Cat\" одним и тем же объектом? "
+                + (catBean == anotherOneCatBean));
     }
 }
